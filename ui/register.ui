@@ -103,7 +103,7 @@ border-radius: 15px;</string>
     <string>CREATE ACCOUNT</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="txt_email">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -127,7 +127,7 @@ color: rgb(0, 0, 0)</string>
     <string>Email</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="txt_password">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -154,7 +154,7 @@ color: rgb(0, 0, 0)</string>
     <string>Password</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="btn_register">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -176,7 +176,7 @@ color: rgb(0, 0, 0)</string>
     <string>Register</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="btn_login_tran">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -215,7 +215,7 @@ color:rgb(0, 0, 0)</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_5">
+  <widget class="QLineEdit" name="txt_name">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -239,7 +239,7 @@ color: rgb(0, 0, 0)</string>
     <string>Name</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_6">
+  <widget class="QLineEdit" name="txt_comfirm_password">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -264,6 +264,48 @@ color: rgb(0, 0, 0)</string>
    </property>
    <property name="placeholderText">
     <string>Comfirm Password</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_eye_p">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>240</y>
+     <width>83</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+    background: transparent;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../img/eye-solid.svg</normaloff>../img/eye-solid.svg</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_eye_cp">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>310</y>
+     <width>83</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+    background: transparent;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../img/eye-solid.svg</normaloff>../img/eye-solid.svg</iconset>
    </property>
   </widget>
  </widget>

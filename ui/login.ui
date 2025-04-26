@@ -73,7 +73,7 @@ border-radius: 15px;
     <string>WELCOME</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="txt_email">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -91,13 +91,13 @@ border-radius: 15px;
 color: rgb(0, 0, 0)</string>
    </property>
    <property name="text">
-    <string>Enter your email</string>
+    <string/>
    </property>
    <property name="placeholderText">
     <string>enter your email</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="txt_password">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -166,11 +166,11 @@ color: rgb(0, 0, 0)</string>
     <string>Password</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="btn_login">
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>370</y>
+     <y>390</y>
      <width>311</width>
      <height>51</height>
     </rect>
@@ -188,7 +188,7 @@ color: rgb(0, 0, 0)</string>
     <string>Log in</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="btn_register_tran">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -229,6 +229,45 @@ color: rgb(0, 0, 0)</string>
    </property>
    <property name="text">
     <string>Stay log in in 30 days</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_eye">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>260</y>
+     <width>83</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+    background: transparent;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../img/eye-solid.svg</normaloff>../img/eye-solid.svg</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>350</y>
+     <width>191</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+    background: transparent;
+color: rgb(0, 0, 0)</string>
+   </property>
+   <property name="text">
+    <string>you forgot your password?</string>
    </property>
   </widget>
  </widget>
