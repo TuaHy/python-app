@@ -136,7 +136,7 @@ QPushButton:hover {
     <string notr="true">background-color: rgb(170, 255, 127)</string>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="home">
     <widget class="QLineEdit" name="lineEdit_2">
@@ -458,7 +458,7 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
        <string notr="true">color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
-       <string>Sân Giá Nguyễn</string>
+       <string>Sân Gia Nguyễn</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_4">
@@ -516,7 +516,7 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../img/unnamed.webp</pixmap>
+       <pixmap>../img/san-bong-da-mini-tan-thoi-hoa-1_thumb_720.webp</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -541,15 +541,15 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
        <string notr="true">color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
-       <string>300K Vnd/hour</string>
+       <string>200K Vnd/hour</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_27">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>60</x>
         <y>10</y>
-        <width>131</width>
+        <width>271</width>
         <height>20</height>
        </rect>
       </property>
@@ -563,7 +563,7 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
        <string notr="true">color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
-       <string>Sân Giá Nguyễn</string>
+       <string>Sân Bóng Đá Mini Tân Thới Hoà</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_5">
@@ -621,7 +621,7 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../img/unnamed.webp</pixmap>
+       <pixmap>../img/OIP (2).jpg</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -652,9 +652,9 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
      <widget class="QLabel" name="label_18">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>80</x>
         <y>10</y>
-        <width>131</width>
+        <width>231</width>
         <height>20</height>
        </rect>
       </property>
@@ -668,7 +668,7 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
        <string notr="true">color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
-       <string>Sân Giá Nguyễn</string>
+       <string>Sân Bóng Đá mini Cầu Xéo</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_6">
@@ -726,7 +726,7 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../img/unnamed.webp</pixmap>
+       <pixmap>../img/san-bong-da-mini-van-nguyen-2_thumb_720.webp</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -751,15 +751,15 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
        <string notr="true">color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
-       <string>300K Vnd/hour</string>
+       <string>250K Vnd/hour</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_21">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>60</x>
         <y>10</y>
-        <width>131</width>
+        <width>251</width>
         <height>20</height>
        </rect>
       </property>
@@ -773,7 +773,7 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
        <string notr="true">color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
-       <string>Sân Giá Nguyễn</string>
+       <string>Sân Bóng Đá Mini Vạn Nguyên</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_7">
