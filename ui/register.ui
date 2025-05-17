@@ -213,7 +213,7 @@ color: rgb(0, 0, 0)</string>
     <string>Name</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="txt_comfirm_password">
+  <widget class="QLineEdit" name="txt_confirm_password">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -258,7 +258,7 @@ color: rgb(0, 0, 0)</string>
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../img/eye-solid.svg</normaloff>../img/eye-solid.svg</iconset>
+     <normaloff>../img/eye-slash-solid.svg</normaloff>../img/eye-slash-solid.svg</iconset>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_eye_cp">
@@ -279,7 +279,7 @@ color: rgb(0, 0, 0)</string>
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../img/eye-solid.svg</normaloff>../img/eye-solid.svg</iconset>
+     <normaloff>../img/eye-slash-solid.svg</normaloff>../img/eye-slash-solid.svg</iconset>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">
@@ -295,7 +295,7 @@ color: rgb(0, 0, 0)</string>
     <string>If you already have account</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="btn_login">
    <property name="geometry">
     <rect>
      <x>500</x>

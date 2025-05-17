@@ -212,7 +212,7 @@ color: rgb(0, 0, 0)</string>
   <widget class="QPushButton" name="btn_eye">
    <property name="geometry">
     <rect>
-     <x>470</x>
+     <x>490</x>
      <y>270</y>
      <width>83</width>
      <height>29</height>
@@ -227,7 +227,7 @@ color: rgb(0, 0, 0)</string>
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../img/eye-solid.svg</normaloff>../img/eye-solid.svg</iconset>
+     <normaloff>../img/eye-slash-solid.svg</normaloff>../img/eye-slash-solid.svg</iconset>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_3">
@@ -261,7 +261,7 @@ color: rgb(0, 0, 0)</string>
     <string>if you don't have account?</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="btn_register">
    <property name="geometry">
     <rect>
      <x>440</x>

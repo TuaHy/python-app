@@ -88,6 +88,8 @@ class  Register(QWidget):
 
         self.btn_eye_p.clicked.connect(lambda: self.show_password(self.btn_eye_p, self.password_input))
         self.btn_eye_cp.clicked.connect(lambda: self.show_password(self.btn_eye_cp, self.confirm_password_input))
+        self.btn_register.clicked.connect(self.register)
+        self.btn_login.clicked.connect(self.show_login)
 
     def show_password(self, button: QPushButton, input: QLineEdit):
         if input.echoMode() == QLineEdit.EchoMode.Password:
