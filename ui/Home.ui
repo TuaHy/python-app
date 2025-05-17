@@ -71,7 +71,7 @@ border-radius: 12px;</string>
     <string>WELCOME</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="btn_home">
    <property name="geometry">
     <rect>
      <x>620</x>
@@ -94,10 +94,10 @@ QPushButton:hover {
 }</string>
    </property>
    <property name="text">
-    <string>LOGIN</string>
+    <string>Home</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="btn_profile">
    <property name="geometry">
     <rect>
      <x>840</x>
@@ -120,7 +120,7 @@ QPushButton:hover {
 }</string>
    </property>
    <property name="text">
-    <string>REGISTER</string>
+    <string>Profile</string>
    </property>
   </widget>
   <widget class="QStackedWidget" name="stackedWidget">
@@ -133,10 +133,11 @@ QPushButton:hover {
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(170, 255, 127)</string>
+    <string notr="true">background-color: rgb(170, 255, 127);
+background-color: transparent;</string>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="home">
     <widget class="QLineEdit" name="lineEdit_2">
@@ -174,6 +175,9 @@ QPushButton:hover {
        <pointsize>11</pointsize>
        <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0)</string>
      </property>
      <property name="text">
       <string>City</string>
@@ -225,7 +229,7 @@ QPushButton:hover {
     <widget class="QLabel" name="label_10">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>100</x>
        <y>290</y>
        <width>931</width>
        <height>111</height>
@@ -278,6 +282,9 @@ border-radius: 12px;</string>
        <bold>true</bold>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0)</string>
+     </property>
      <property name="text">
       <string>Type</string>
      </property>
@@ -318,6 +325,9 @@ border-radius: 12px;</string>
        <pointsize>11</pointsize>
        <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0)</string>
      </property>
      <property name="text">
       <string>District</string>
@@ -387,6 +397,9 @@ border-radius: 12px;</string>
        <width>371</width>
        <height>281</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(170, 255, 0)</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::Shape::StyledPanel</enum>
@@ -461,7 +474,7 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
        <string>Sân Gia Nguyễn</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="btn_booking">
       <property name="geometry">
        <rect>
         <x>140</x>
@@ -480,7 +493,7 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
 border: 1px solid rgba(0, 0, 0, 0);</string>
       </property>
       <property name="text">
-       <string>detail</string>
+       <string>Booking</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_30">
@@ -527,11 +540,14 @@ border: 1px solid rgba(0, 0, 0, 0);</string>
     <widget class="QFrame" name="frame_6">
      <property name="geometry">
       <rect>
-       <x>560</x>
+       <x>650</x>
        <y>30</y>
        <width>371</width>
        <height>291</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(170, 255, 0)</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::Shape::StyledPanel</enum>
@@ -625,7 +641,7 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
 border: 1px solid rgba(0, 0, 0, 0);</string>
       </property>
       <property name="text">
-       <string>detail</string>
+       <string>Booking</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_31">
@@ -672,11 +688,15 @@ border: 1px solid rgba(0, 0, 0, 0);</string>
     <widget class="QFrame" name="frame_3">
      <property name="geometry">
       <rect>
-       <x>560</x>
+       <x>650</x>
        <y>330</y>
        <width>371</width>
        <height>291</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(170, 255, 0)
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::Shape::StyledPanel</enum>
@@ -770,7 +790,7 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
 border: 1px solid rgba(0, 0, 0, 0);</string>
       </property>
       <property name="text">
-       <string>detail</string>
+       <string>Booking</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_33">
@@ -822,6 +842,9 @@ border: 1px solid rgba(0, 0, 0, 0);</string>
        <width>371</width>
        <height>291</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(170, 255, 0)</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::Shape::StyledPanel</enum>
@@ -915,7 +938,7 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
 border: 1px solid rgba(0, 0, 0, 0);</string>
       </property>
       <property name="text">
-       <string>detail</string>
+       <string>Booking</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_32">
@@ -964,8 +987,8 @@ border: 1px solid rgba(0, 0, 0, 0);</string>
     <widget class="QLabel" name="label_11">
      <property name="geometry">
       <rect>
-       <x>220</x>
-       <y>0</y>
+       <x>230</x>
+       <y>-10</y>
        <width>691</width>
        <height>601</height>
       </rect>
@@ -982,7 +1005,7 @@ border: 1px solid rgba(0, 0, 0, 0);</string>
     <widget class="QLabel" name="label_12">
      <property name="geometry">
       <rect>
-       <x>490</x>
+       <x>510</x>
        <y>20</y>
        <width>131</width>
        <height>131</height>
@@ -1040,36 +1063,6 @@ border: 1px solid rgba(0, 0, 0, 0);</string>
             border-radius: 15px;</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_5">
-     <property name="geometry">
-      <rect>
-       <x>420</x>
-       <y>450</y>
-       <width>311</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgba(255, 255, 255, 50); /* Trong suốt */
-            border: 1px solid rgba(255, 255, 255, 80);
-            border-radius: 15px;</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_6">
-     <property name="geometry">
-      <rect>
-       <x>600</x>
-       <y>350</y>
-       <width>311</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgba(255, 255, 255, 50); /* Trong suốt */
-            border: 1px solid rgba(255, 255, 255, 80);
-            border-radius: 15px;</string>
-     </property>
-    </widget>
     <widget class="QLineEdit" name="lineEdit_7">
      <property name="geometry">
       <rect>
@@ -1103,7 +1096,7 @@ border: 1px solid rgba(0, 0, 0, 0);</string>
     <widget class="QLabel" name="label_23">
      <property name="geometry">
       <rect>
-       <x>430</x>
+       <x>540</x>
        <y>400</y>
        <width>91</width>
        <height>31</height>
@@ -1186,6 +1179,97 @@ border: 1px solid rgba(0, 0, 0, 0);</string>
      </property>
      <property name="text">
       <string>Name</string>
+     </property>
+    </widget>
+    <widget class="QDateEdit" name="dateEdit">
+     <property name="geometry">
+      <rect>
+       <x>610</x>
+       <y>350</y>
+       <width>201</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 50); /* Trong suốt */
+color: rgb(0, 0, 0)</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>430</y>
+       <width>111</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: none;
+    background: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../img/person-solid.svg</normaloff>../img/person-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>100</width>
+       <height>100</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>590</x>
+       <y>430</y>
+       <width>111</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: none;
+    background: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../img/person-dress-solid.svg</normaloff>../img/person-dress-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>100</width>
+       <height>100</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>550</y>
+       <width>83</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(170, 255, 0);
+color: rgb(0, 0, 0)</string>
+     </property>
+     <property name="text">
+      <string>Save</string>
      </property>
     </widget>
    </widget>
@@ -1370,6 +1454,32 @@ border: 1px solid rgba(0, 0, 0, 0);</string>
      </property>
     </widget>
    </widget>
+  </widget>
+  <widget class="QPushButton" name="btn_list">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>30</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-weight: bold;
+}
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* hiệu ứng hover nhẹ */
+}</string>
+   </property>
+   <property name="text">
+    <string>List</string>
+   </property>
   </widget>
  </widget>
  <resources/>
