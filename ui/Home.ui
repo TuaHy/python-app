@@ -399,7 +399,9 @@ border-radius: 12px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(170, 255, 0)</string>
+      <string notr="true">background-color: rgba(255, 255, 255, 100); /* trắng mờ (alpha 100/255) */
+
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::Shape::StyledPanel</enum>
@@ -477,7 +479,7 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
      <widget class="QPushButton" name="btn_booking">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>160</x>
         <y>250</y>
         <width>83</width>
         <height>29</height>
@@ -489,8 +491,9 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-border: 1px solid rgba(0, 0, 0, 0);</string>
+       <string notr="true">color: rgb(255, 255, 255);
+border: 1px solid rgba(0, 0, 0, 0);
+background-color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Booking</string>
@@ -547,7 +550,9 @@ border: 1px solid rgba(0, 0, 0, 0);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(170, 255, 0)</string>
+      <string notr="true">background-color: rgba(255, 255, 255, 100); /* trắng mờ (alpha 100/255) */
+
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::Shape::StyledPanel</enum>
@@ -625,7 +630,7 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
      <widget class="QPushButton" name="pushButton_5">
       <property name="geometry">
        <rect>
-        <x>130</x>
+        <x>160</x>
         <y>250</y>
         <width>83</width>
         <height>29</height>
@@ -637,8 +642,9 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-border: 1px solid rgba(0, 0, 0, 0);</string>
+       <string notr="true">color: rgb(255, 255, 255);
+border: 1px solid rgba(0, 0, 0, 0);
+background-color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Booking</string>
@@ -695,7 +701,8 @@ border: 1px solid rgba(0, 0, 0, 0);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(170, 255, 0)
+      <string notr="true">background-color: rgba(255, 255, 255, 100); /* trắng mờ (alpha 100/255) */
+
 </string>
      </property>
      <property name="frameShape">
@@ -774,8 +781,8 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
      <widget class="QPushButton" name="pushButton_6">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>250</y>
+        <x>160</x>
+        <y>260</y>
         <width>83</width>
         <height>29</height>
        </rect>
@@ -786,8 +793,9 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-border: 1px solid rgba(0, 0, 0, 0);</string>
+       <string notr="true">color: rgb(255, 255, 255);
+border: 1px solid rgba(0, 0, 0, 0);
+background-color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Booking</string>
@@ -844,7 +852,9 @@ border: 1px solid rgba(0, 0, 0, 0);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(170, 255, 0)</string>
+      <string notr="true">background-color: rgba(255, 255, 255, 100); /* trắng mờ (alpha 100/255) */
+
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::Shape::StyledPanel</enum>
@@ -922,8 +932,8 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
      <widget class="QPushButton" name="pushButton_7">
       <property name="geometry">
        <rect>
-        <x>130</x>
-        <y>250</y>
+        <x>160</x>
+        <y>260</y>
         <width>83</width>
         <height>29</height>
        </rect>
@@ -934,8 +944,9 @@ border: 1px solid #ccc; /* Viền nhẹ */</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-border: 1px solid rgba(0, 0, 0, 0);</string>
+       <string notr="true">color: rgb(255, 255, 255);
+border: 1px solid rgba(0, 0, 0, 0);
+background-color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Booking</string>
