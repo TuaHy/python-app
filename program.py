@@ -3,7 +3,7 @@ from PyQt6.QtCore import *
 from PyQt6.QtGui import *
 from PyQt6 import uic
 import sys
-class Alert(QMessageBox):
+class Alert(QMessageBox): #kế thừa
     def error_message(self, title, message):
         self.setIcon(QMessageBox.Icon.Critical)
         self.setWindowTitle(title)
@@ -16,9 +16,9 @@ class Alert(QMessageBox):
         self.setText(message)
         self.exec()
 
-class Login(QWidget):
-    def __init__(self):
-        super().__init__()
+class Login(QWidget): # kế thừa
+    def __init__(self): #khởi tạo đối tượng
+        super().__init__() # gọi phương thức khởi tạo của lớp cha (super trả về lớp cha là QWidget)
         uic.loadUi("ui/login.ui", self)
 
         self.email_input = self.findChild(QLineEdit, "txt_email")
@@ -27,7 +27,7 @@ class Login(QWidget):
         self.btn_register = self.findChild(QPushButton, "btn_register")
         self.btn_eye = self.findChild(QPushButton, "btn_eye")
 
-        self.btn_eye.clicked.connect(lambda: self.show_password(self.btn_eye, self.password_input))
+        self.btn_eye.clicked.connect(lambda: self.show_password(self.btn_eye, self.password_input)) #lambda là Dùng để truyền tham số vào hàm xử lý sự kiện
         self.btn_login.clicked.connect(self.login)
         self.btn_register.clicked.connect(self.show_register)
 
@@ -151,10 +151,12 @@ class Home(QWidget):
         self.btn_home = self.findChild(QPushButton, "btn_home")
         self.btn_profile = self.findChild(QPushButton, "btn_profile")
         self.btn_list = self.findChild(QPushButton, "btn_list")
+        self.btn_search = self.findChild(QPushButton, "btn_search")
         self.btn_booking = self.findChild(QPushButton, "btn_booking")
 
         self.btn_home.clicked.connect(lambda: self.navigate_screen(self.stack_widget, 0))
         self.btn_list.clicked.connect(lambda: self.navigate_screen(self.stack_widget, 1))
+        self.btn_search.clicked.connect(lambda: self.navigate_screen(self.stack_widget, 1))
         self.btn_profile.clicked.connect(lambda: self.navigate_screen(self.stack_widget, 2))
         self.btn_booking.clicked.connect(lambda: self.navigate_screen(self.stack_widget, 3))
 
