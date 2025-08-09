@@ -3,6 +3,7 @@ from PyQt6.QtCore import *
 from PyQt6.QtGui import *
 from PyQt6 import uic
 import sys
+import json
 class Alert(QMessageBox): #kế thừa
     def error_message(self, title, message):
         self.setIcon(QMessageBox.Icon.Critical)
