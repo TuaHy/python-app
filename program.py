@@ -149,6 +149,7 @@ class Home(QWidget):
 
         self.id = id
         self.user = get_user_by_id(id)
+        self.load_user_info()
         
         self.stack_widget = self.findChild(QStackedWidget, "stackedWidget")
         self.btn_home = self.findChild(QPushButton, "btn_home")
@@ -156,13 +157,14 @@ class Home(QWidget):
         self.btn_list = self.findChild(QPushButton, "btn_list")
         self.btn_search = self.findChild(QPushButton, "btn_search")
         self.btn_booking = self.findChild(QPushButton, "btn_booking")
-
+        self.btn_save_account = self.findChild(QPushButton, "btn_save_account")
         #user
         self.txt_name = self.findChild(QLineEdit, "txt_name")
         self.txt_email = self.findChild(QLineEdit, "txt_email")
         self.txt_birthday = self.findChild(QDateEdit, "txt_birthday")
         self.txt_gender = self.findChild(QComboBox, "txt_gender")
         self.btn_avatar = self.findChild(QPushButton, "btn_avatar")
+        self.btn_save_account.clicked.connect(self.update_user_info)
 
 
         self.btn_home.clicked.connect(lambda: self.navigate_screen(self.stack_widget, 0))
