@@ -188,7 +188,14 @@ class Home(QWidget):
             self.user["avatar"] = file
             self.btn_avatar.setIcon(QIcon(file))
             update_user_avatar(self.id, file)
-        
+
+    def update_user_info(self):
+        name = self.txt_name.text().strip()
+        birthday = self.txt_birthday.data().toString("dd/MM/yyyy")
+        gender = self.txt_gender.currentText()
+        update_user(self.id, name, birthday, gender)    
+        msg.success_message("Update", "User info updated successfully")
+        self.load_user_info()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
