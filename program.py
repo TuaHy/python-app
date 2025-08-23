@@ -59,6 +59,7 @@ class Login(QWidget): # kế thừa
         if user:
             msg.success_message("Login", "Welcome to the system")
             self.show_home(user["id"])
+            self.close()
             return
         
         msg.error_message("Login", "Invalid email or password")
@@ -67,10 +68,12 @@ class Login(QWidget): # kế thừa
     def show_register(self):
         self.register = Register()
         self.register.show()
+        self.close()
 
     def show_home(self, id):
         self.home = Home(id)
         self.home.show()
+        self.close()
 
 class  Register(QWidget):
     def __init__(self):
@@ -138,6 +141,7 @@ class  Register(QWidget):
     def show_login(self):
         self.login = Login()
         self.login.show()
+        self.close()
 
 class Home(QWidget):
     def __init__(self, id):
