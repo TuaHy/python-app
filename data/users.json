@@ -7,5 +7,14 @@
         "birthday": "01/01/2000",
         "gender": "None",
         "avatar": "/Users/pinxun/Documents/MindX/PTA/PTA09/TuanHy/python-app/img/images.jpg"
+    },
+    {
+        "id": 2,
+        "email": "tuanhy0802@gmail.com",
+        "password": "Hy3783573@90",
+        "name": "hy",
+        "birthday": "",
+        "gender": "",
+        "avatar": ""
     }
 ]
