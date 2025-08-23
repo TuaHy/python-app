@@ -132,9 +132,6 @@ class  Register(QWidget):
             return
         
         create_user(email, password, name)
-        
-        with open("data/users.txt", "a") as file:
-            file.write(f"{email},{password},{name}\n")
         msg.success_message("Register", "Account created successfully")
         self.show_login()
 
