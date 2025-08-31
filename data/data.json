@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Sân Bóng Đá Gia Nguyễn",
+        "rating": 5,
+        "price": "300K VND/giờ",
+        "image": "img/Gia Nguyễn.webp",
+        "description": "Sân bóng đá Gia Nguyễn",
+        "address": "123 Đường ABC, Quận 1, TP.HCM",
+        "grass_type": "Cỏ nhân tạo",
+        "field_type": "Sân bóng đá 5 người",
+        "ball_type": "Tất cả các loại banh được dùng trong bóng đá, ưu tiên banh 2030",
+        "contact": "0123 456 789",
+        "district": "Quận 1",
+        "city": "TP.HCM"
+    },
+    {
+        "id": 2,
+        "name": "Sân Bóng Đá Mini Tân Thới Hoà",
+        "rating": 5,
+        "price": "200K VND/giờ",
+        "image": "img/san-bong-da-mini-tan-thoi-hoa-1_thumb_720.webp",
+        "description": "Sân bóng tại Tân Thới Hoà",
+        "address": "17 Lương Minh Nguyệt, Tân Thới Hoà, Tân Phú, TP.HCM",
+        "grass_type": "Cỏ nhân tạo",
+        "field_type": "Sân bóng đá 5 người",
+        "ball_type": "Tất cả các loại banh được dùng trong bóng đá, ưu tiên banh 2030",
+        "contact": "0868 180 975",
+        "district": "Tân Phú",
+        "city": "TP.HCM"
+    },
+    {
+        "id": 3,
+        "name": "Sân Bóng Đá Mini Vạn Nguyên",
+        "rating": 5,
+        "price": "250K VND/giờ",
+        "image": "img/san-bong-da-mini-van-nguyen-2_thumb_720.webp",
+        "description": "Sân bóng tại Q8",
+        "address": "456 Đường XYZ, Quận 8, TP.HCM",
+        "grass_type": "Cỏ nhân tạo",
+        "field_type": "Sân bóng đá 5 người",
+        "ball_type": "Tất cả các loại banh được dùng trong bóng đá, ưu tiên banh 2030",
+        "contact": "0987 654 321",
+        "district": "Quận 8",
+        "city": "TP.HCM"
+    },
+    {
+        "id": 4,
+        "name": "Sân Bóng Đá Mini Cầu Xéo",
+        "rating": 5,
+        "price": "300K VND/giờ",
+        "image": "img/OIP (2).jpg",
+        "description": "Sân bóng tại Tân Bình",
+        "address": "789 Đường DEF, Tân Bình, TP.HCM",
+        "grass_type": "Cỏ nhân tạo",
+        "field_type": "Sân bóng đá 5 người",
+        "ball_type": "Tất cả các loại banh được dùng trong bóng đá, ưu tiên banh 2030",
+        "contact": "0555 123 456",
+        "district": "Tân Bình",
+        "city": "TP.HCM"
+    }
+]

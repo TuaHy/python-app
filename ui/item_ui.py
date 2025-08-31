@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(371, 281)
+        Form.resize(400, 300)
         self.lb_name = QtWidgets.QLabel(parent=Form)
         self.lb_name.setGeometry(QtCore.QRect(130, 10, 111, 20))
         self.lb_name.setObjectName("lb_name")
