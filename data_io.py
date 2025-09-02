@@ -71,30 +71,73 @@ def load_football_fields():
     except Exception as e:
         return []
 
-def search_football_fields(query, search_type="name"):
-    """Search football fields by different criteria"""
+def search_football_fields_by_name(name):
+    """Search football fields by name"""
     fields = load_football_fields()
     results = []
     
-    query = query.lower().strip()
+    name = name.lower().strip()
     
     for field in fields:
-        if search_type == "name":
-            if query in field.get("name", "").lower():
-                results.append(field)
-        elif search_type == "district":
-            if query in field.get("district", "").lower():
-                results.append(field)
-        elif search_type == "city":
-            if query in field.get("city", "").lower():
-                results.append(field)
+        if name in field.get("name", "").lower():
+            results.append(field)
     
     return results
 
-def get_football_fields_by_district(district):
-    """Get all football fields in a specific district"""
-    return search_football_fields(district, "district")
+def search_football_fields_by_type(field_type):
+    """Search football fields by field type (5 người, 7 người, 11 người)"""
+    fields = load_football_fields()
+    results = []
+    
+    field_type = field_type.lower().strip()
+    
+    for field in fields:
+        if field_type in field.get("field_type", "").lower():
+            results.append(field)
+    
+    return results
 
-def get_football_fields_by_city(city):
-    """Get all football fields in a specific city"""
-    return search_football_fields(city, "city")
+def load_field_types():
+    """Load unique field types from football fields data"""
+    fields = load_football_fields()
+    types = []
+    seen = set()
+    for field in fields:
+        t = field.get("field_type", "").strip()
+        if t and t not in seen:
+            types.append(t)
+            seen.add(t)
+    return types
+
+def filter_football_fields(city=None, field_type=None, name=None):
+    """Return football fields filtered by city, field_type, and name (AND logic)."""
+    fields = load_football_fields()
+    results = fields
+    
+    if city and city != "All Cities":
+        c = city.lower().strip()
+        results = [f for f in results if c in f.get("city", "").lower()]
+    
+    if field_type and field_type != "All Types":
+        t = field_type.lower().strip()
+        results = [f for f in results if t in f.get("field_type", "").lower()]
+    
+    if name:
+        q = name.lower().strip()
+        results = [f for f in results if q in f.get("name", "").lower()]
+    
+    return results
+
+def load_cities():
+    """Load unique cities from football fields data"""
+    fields = load_football_fields()
+    cities = []
+    seen_cities = set()
+    
+    for field in fields:
+        city = field.get("city", "")
+        if city and city not in seen_cities:
+            cities.append({"id": len(cities) + 1, "name": city})
+            seen_cities.add(city)
+    
+    return cities

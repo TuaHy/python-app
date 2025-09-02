@@ -140,70 +140,49 @@ class ItemWidget(QWidget):
         """Set data for the item widget"""
         self.data = data
         
-        try:
-            # Set name if label exists
-            if self.lb_name:
-                self.lb_name.setText(data.get("name", ""))
-            
-            # Set image if label exists
-            if self.lb_image:
-                image_path = data.get("image", "")
-                if image_path:
-                    pixmap = QPixmap(image_path)
-                    if not pixmap.isNull():
-                        self.lb_image.setPixmap(pixmap)
-            
-            # Set rating if label exists
-            if self.lb_rating:
-                rating = data.get("rating", 0)
-                self.lb_rating.setText(f"{rating}/5")
-            
-            # Set price if label exists
-            if self.lb_price:
-                price = data.get("price", "")
-                self.lb_price.setText(price)
-            
-            # Set star icon if label exists
-            if self.lb_icon_star:
-                star_path = "img/star-solid.svg"
-                star_pixmap = QPixmap(star_path)
-                if not star_pixmap.isNull():
-                    self.lb_icon_star.setPixmap(star_pixmap)
-                    
-        except Exception as e:
-            print(f"Error setting data in ItemWidget: {e}")
-            import traceback
-            traceback.print_exc()
+        if self.lb_name:
+            self.lb_name.setText(data.get("name", ""))
+        
+        if self.lb_image:
+            image_path = data.get("image", "")
+            if image_path:
+                pixmap = QPixmap(image_path)
+                if not pixmap.isNull():
+                    self.lb_image.setPixmap(pixmap)
+        
+        if self.lb_rating:
+            rating = data.get("rating", 0)
+            self.lb_rating.setText(f"{rating}/5")
+        
+        if self.lb_price:
+            price = data.get("price", "")
+            self.lb_price.setText(price)
+        
+        if self.lb_icon_star:
+            star_path = "img/star-solid.svg"
+            star_pixmap = QPixmap(star_path)
+            if not star_pixmap.isNull():
+                self.lb_icon_star.setPixmap(star_pixmap)
     
     def show_detail(self):
         """Show detail page for this item"""
-        if self.data:
-            try:
-                # Find the Home widget in the widget hierarchy
-                parent = self.parent()
-                while parent and not hasattr(parent, 'show_detail_page'):
-                    parent = parent.parent()
-                if parent:
-                    parent.show_detail_page(self.data)
-                else:
-                    print("Could not find Home widget with show_detail_page method")
-            except Exception as e:
-                print(f"Error in show_detail: {e}")
+        if not self.data:
+            return
+        parent = self.parent()
+        while parent and not hasattr(parent, 'show_detail_page'):
+            parent = parent.parent()
+        if parent:
+            parent.show_detail_page(self.data)
     
     def booking(self):
         """Handle booking for this item"""
-        if self.data:
-            try:
-                # Find the Home widget in the widget hierarchy
-                parent = self.parent()
-                while parent and not hasattr(parent, 'handle_booking'):
-                    parent = parent.parent()
-                if parent:
-                    parent.handle_booking(self.data)
-                else:
-                    print("Could not find Home widget with handle_booking method")
-            except Exception as e:
-                print(f"Error in booking: {e}")
+        if not self.data:
+            return
+        parent = self.parent()
+        while parent and not hasattr(parent, 'handle_booking'):
+            parent = parent.parent()
+        if parent:
+            parent.handle_booking(self.data)
 
 class Alert(QMessageBox): #kế thừa
     def error_message(self, title, message):
@@ -371,20 +350,42 @@ class Home(QWidget):
         self.txt_email = self.findChild(QLineEdit, "txt_email")
         self.txt_birthday = self.findChild(QDateEdit, "txt_birthday")
         self.txt_gender = self.findChild(QComboBox, "txt_gender")
+        
+        # Find search fields
+        self.combo_city = self.findChild(QComboBox, "combo_city")
+        self.combo_type = self.findChild(QComboBox, "combo_type")
+        self.txt_search = self.findChild(QLineEdit, "txt_search")
+        self.btn_search = self.findChild(QPushButton, "btn_search")
 
         # Connect button signals
         self.btn_home.clicked.connect(lambda: self.navigate_screen(self.stack_widget, 0))
         self.btn_list.clicked.connect(lambda: self.navigate_to_list())
-        self.btn_search.clicked.connect(lambda: self.navigate_screen(self.stack_widget, 1))
+        self.btn_search.clicked.connect(self.perform_search)
         self.btn_profile.clicked.connect(lambda: self.navigate_screen(self.stack_widget, 2))
-        self.btn_booking.clicked.connect(lambda: self.navigate_screen(self.stack_widget, 3))
         self.btn_avatar.clicked.connect(self.update_avatar)
         self.btn_save_account.clicked.connect(self.update_user_info)
+        
+        # Setup filter combos
+        self.setup_city_combo()
+        self.setup_type_combo()
         
         # Initialize variables
         self.scroll_area = None
         self.scroll_layout = None
         self.scroll_area_setup_done = False
+        
+        # Detail page refs
+        self.detail_page = None
+        self.detail_img = None
+        self.detail_name = None
+        self.detail_address = None
+        self.detail_grass = None
+        self.detail_field_type = None
+        self.detail_ball_type = None
+        self.detail_contact = None
+        self.detail_back_btn = None
+        self.detail_book_btn = None
+        self.current_detail_data = None
         
 
 
@@ -402,6 +403,13 @@ class Home(QWidget):
         
         # Load football fields when navigating to list page
         self.load_football_fields()
+
+    def navigate_to_detail(self):
+        """Navigate to the detail page safely by object name"""
+        if not self.detail_page:
+            self.setup_detail_page()
+        if self.detail_page:
+            self.stack_widget.setCurrentWidget(self.detail_page)
 
     def find_scroll_area(self):
         """Find the scroll area in the list page"""
@@ -477,101 +485,151 @@ class Home(QWidget):
     
     def load_football_fields(self):
         """Load football fields data and create item widgets"""
-        try:
-            # Ensure scroll area is found and set up
-            if not self.scroll_area:
-                self.find_scroll_area()
-            
-            if not self.scroll_area:
+        # Ensure scroll area is found and set up
+        if not self.scroll_area:
+            self.find_scroll_area()
+        if not self.scroll_area:
+            return
+        if not self.scroll_area_setup_done:
+            setup_success = self.setup_scroll_area()
+            if not setup_success:
                 return
-                
-            # Ensure scroll area is set up
-            if not self.scroll_area_setup_done:
-                setup_success = self.setup_scroll_area()
-                if not setup_success:
-                    return
-            
-            # Check if scroll layout is available
-            if not hasattr(self, 'scroll_layout') or self.scroll_layout is None:
-                return
-                
-            # Load data using data_io functions
-            try:
-                football_fields = load_football_fields()
-            except Exception as e:
-                return
-            
-            # Clear existing items
-            for i in reversed(range(self.scroll_layout.count())):
-                widget = self.scroll_layout.itemAt(i).widget()
-                if widget:
-                    widget.deleteLater()
-            
-            # Create item widgets
-            widgets_created = 0
-            row = 0
-            col = 0
-            max_cols = 2  # 2 columns
-            
-            for field_data in football_fields:
-                try:
-                    item_widget = ItemWidget(field_data)
-                    if item_widget:
-                        # Set size policy for item widget
-                        item_widget.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
-                        item_widget.setMinimumHeight(400)  # Increased height for better appearance
-                        item_widget.setMinimumWidth(450)   # Set minimum width
-                        
-                        # Add to grid layout
-                        self.scroll_layout.addWidget(item_widget, row, col)
-                        
-                        # Move to next position
-                        col += 1
-                        if col >= max_cols:
-                            col = 0
-                            row += 1
-                        
-                        widgets_created += 1
-                except Exception as e:
-                    import traceback
-                    traceback.print_exc()
-            
-            # Add stretch to push items to top (QGridLayout doesn't have addStretch)
-            # Instead, add an empty widget that expands
-            stretch_widget = QWidget()
-            stretch_widget.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-            self.scroll_layout.addWidget(stretch_widget, row, 0, 1, max_cols)  # Span all columns
-            
-            # Force layout update
-            self.scroll_content.updateGeometry()
-            self.scroll_area.updateGeometry()
-                
-        except Exception as e:
-            import traceback
-            traceback.print_exc()
+        if not hasattr(self, 'scroll_layout') or self.scroll_layout is None:
+            return
+        # Load data
+        football_fields = load_football_fields()
+        # Render
+        self.render_items(football_fields)
     
     def show_detail_page(self, field_data):
         """Show detail page for selected football field"""
-        # Navigate to detail page (index 3)
-        self.navigate_screen(self.stack_widget, 3)
-        # TODO: Update detail page with field_data
+        if not self.detail_page:
+            self.setup_detail_page()
+        self.current_detail_data = field_data
+        # Image
+        image_path = field_data.get("image", "")
+        if self.detail_img and image_path:
+            pix = QPixmap(image_path)
+            if not pix.isNull():
+                self.detail_img.setPixmap(pix)
+        # Texts
+        if self.detail_name:
+            self.detail_name.setText(f"Tên : {field_data.get('name','')}")
+        if self.detail_address:
+            self.detail_address.setText(f"Địa Chỉ : {field_data.get('address','')}")
+        if self.detail_grass:
+            self.detail_grass.setText(f"Loại cỏ : {field_data.get('grass_type','')}")
+        if self.detail_field_type:
+            self.detail_field_type.setText(f"Loại sân: {field_data.get('field_type','')}")
+        if self.detail_ball_type:
+            self.detail_ball_type.setText(f"Loại bóng để đá : {field_data.get('ball_type','')}")
+        if self.detail_contact:
+            self.detail_contact.setText(f"Liên Lạc : {field_data.get('contact','')}")
+        # Navigate
+        if self.detail_page:
+            self.stack_widget.setCurrentWidget(self.detail_page)
+
+    def setup_detail_page(self):
+        """Locate and wire up widgets in the detail page"""
+        self.detail_page = self.findChild(QWidget, "detail")
+        if not self.detail_page:
+            return
+        self.detail_img = self.detail_page.findChild(QLabel, "lb_detail_image")
+        self.detail_name = self.detail_page.findChild(QLabel, "lb_detail_name")
+        self.detail_address = self.detail_page.findChild(QLabel, "lb_detail_address")
+        self.detail_grass = self.detail_page.findChild(QLabel, "lb_detail_grass")
+        self.detail_field_type = self.detail_page.findChild(QLabel, "lb_detail_field_type")
+        self.detail_ball_type = self.detail_page.findChild(QLabel, "lb_detail_ball_type")
+        self.detail_contact = self.detail_page.findChild(QLabel, "lb_detail_contact")
+        self.detail_back_btn = self.detail_page.findChild(QPushButton, "btn_detail_back")
+        self.detail_book_btn = self.detail_page.findChild(QPushButton, "btn_detail_booking")
+        if self.detail_back_btn:
+            self.detail_back_btn.clicked.connect(lambda: self.navigate_to_list())
+        if self.detail_book_btn:
+            self.detail_book_btn.clicked.connect(lambda: self.current_detail_data and self.handle_booking(self.current_detail_data))
     
     def handle_booking(self, field_data):
         """Handle booking for selected football field"""
-        try:
-            # Simple booking message for now
-            msg.success_message("Booking", f"Booking request sent for {field_data.get('name', 'Unknown field')}")
-        except Exception as e:
-            msg.error_message("Booking", "An error occurred while processing your booking")
+        field_name = field_data.get('name', 'Unknown field')
+        confirm = QMessageBox()
+        confirm.setIcon(QMessageBox.Icon.Question)
+        confirm.setWindowTitle("Xác nhận đặt sân")
+        confirm.setText(f"Bạn có chắc muốn đặt sân: \n\n{field_name}?")
+        confirm.setStandardButtons(QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+        confirm.setDefaultButton(QMessageBox.StandardButton.Yes)
+        result = confirm.exec()
+        if result == QMessageBox.StandardButton.Yes:
+            msg.success_message("Booking", f"Đã gửi yêu cầu đặt sân cho: {field_name}")
+
+    def setup_city_combo(self):
+        """Setup the city combo box with available cities"""
+        cities = load_cities()
+        self.combo_city.clear()
+        self.combo_city.addItem("All Cities", "")
+        for city in cities:
+            self.combo_city.addItem(city["name"], city["id"])
+        self.combo_city.setCurrentText("All Cities")
+
+    def setup_type_combo(self):
+        """Setup the field type combo box with available types"""
+        types = load_field_types()
+        self.combo_type.clear()
+        self.combo_type.addItem("All Types", "")
+        for t in types:
+            self.combo_type.addItem(t, t)
+        self.combo_type.setCurrentText("All Types")
     
-    def search_football_fields(self, query, search_type="name"):
-        """Search football fields using data_io functions"""
-        try:
-            results = search_football_fields(query, search_type)
-            return results
-        except Exception as e:
-            return []
+    def perform_search(self):
+        """Perform search using AND filters for city, type, and name"""
+        selected_city = self.combo_city.currentText()
+        selected_type = self.combo_type.currentText()
+        search_text = self.txt_search.text().strip()
+        results = filter_football_fields(
+            city=selected_city,
+            field_type=selected_type,
+            name=search_text
+        )
+        self.display_search_results(results)
     
+    def display_search_results(self, results):
+        """Display search results in the list page"""
+        # Navigate to list page
+        self.navigate_to_list()
+        # Render
+        self.render_items(results)
+
+    def render_items(self, items):
+        """Render a list of field items into the grid"""
+        if not hasattr(self, 'scroll_layout') or self.scroll_layout is None:
+            return
+        # Clear existing items
+        for i in reversed(range(self.scroll_layout.count())):
+            widget = self.scroll_layout.itemAt(i).widget()
+            if widget:
+                widget.deleteLater()
+        # Create item widgets
+        row = 0
+        col = 0
+        max_cols = 2
+        for field_data in items:
+            item_widget = ItemWidget(field_data)
+            item_widget.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
+            item_widget.setMinimumHeight(400)
+            item_widget.setMinimumWidth(450)
+            self.scroll_layout.addWidget(item_widget, row, col)
+            col += 1
+            if col >= max_cols:
+                col = 0
+                row += 1
+        # Add stretch widget
+        stretch_widget = QWidget()
+        stretch_widget.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        self.scroll_layout.addWidget(stretch_widget, row, 0, 1, max_cols)
+        # Force layout update
+        if hasattr(self, 'scroll_content'):
+            self.scroll_content.updateGeometry()
+        if hasattr(self, 'scroll_area'):
+            self.scroll_area.updateGeometry()
 
 
 if __name__ == "__main__":

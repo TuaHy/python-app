@@ -163,13 +163,13 @@ QPushButton:hover {
 background-color: transparent;</string>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="home">
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="txt_search">
      <property name="geometry">
       <rect>
-       <x>530</x>
+       <x>500</x>
        <y>330</y>
        <width>311</width>
        <height>28</height>
@@ -184,13 +184,13 @@ background-color: transparent;</string>
     font-size: 14px;</string>
      </property>
      <property name="placeholderText">
-      <string>standard number of people on a football field</string>
+      <string>Enter field type or features</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_3">
+    <widget class="QLabel" name="label_city">
      <property name="geometry">
       <rect>
-       <x>200</x>
+       <x>150</x>
        <y>300</y>
        <width>81</width>
        <height>21</height>
@@ -209,7 +209,7 @@ background-color: transparent;</string>
       <string>City</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QComboBox" name="combo_city">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -227,7 +227,50 @@ background-color: transparent;</string>
     font-size: 14px;</string>
      </property>
      <property name="placeholderText">
-      <string>Enter Your City</string>
+      <string>Select City</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_type">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>300</y>
+       <width>81</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0)</string>
+     </property>
+     <property name="text">
+      <string>Type</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="combo_type">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>330</y>
+       <width>151</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #888888;  /* Màu chữ xám nhạt */
+    background-color: white;
+    border: 1px solid #cccccc;  /* Viền mỏng */
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 14px;</string>
+     </property>
+     <property name="placeholderText">
+      <string>Select Type</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_2">
@@ -292,28 +335,6 @@ border-radius: 12px;</string>
        <normaloff>../img/magnifying-glass-solid.svg</normaloff>../img/magnifying-glass-solid.svg</iconset>
      </property>
     </widget>
-    <widget class="QLabel" name="label_4">
-     <property name="geometry">
-      <rect>
-       <x>650</x>
-       <y>300</y>
-       <width>81</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>11</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: rgb(0, 0, 0)</string>
-     </property>
-     <property name="text">
-      <string>Type</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_9">
      <property name="geometry">
       <rect>
@@ -336,59 +357,15 @@ border-radius: 12px;</string>
       <string>PLATFORM IN YOUR AREA</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>380</x>
-       <y>300</y>
-       <width>81</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>11</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: rgb(0, 0, 0)</string>
-     </property>
-     <property name="text">
-      <string>District</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
-     <property name="geometry">
-      <rect>
-       <x>340</x>
-       <y>330</y>
-       <width>151</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: #888888;  /* Màu chữ xám nhạt */
-    background-color: white;
-    border: 1px solid #cccccc;  /* Viền mỏng */
-    border-radius: 6px;
-    padding: 4px 12px;
-    font-size: 14px;</string>
-     </property>
-     <property name="placeholderText">
-      <string>Enter Your District</string>
-     </property>
-    </widget>
+    <zorder>label_type</zorder>
+    <zorder>label_city</zorder>
     <zorder>label_2</zorder>
     <zorder>label_10</zorder>
     <zorder>btn_search</zorder>
-    <zorder>label_4</zorder>
+    <zorder>combo_city</zorder>
     <zorder>label_9</zorder>
-    <zorder>label_7</zorder>
-    <zorder>lineEdit_2</zorder>
-    <zorder>lineEdit_3</zorder>
-    <zorder>label_3</zorder>
-    <zorder>lineEdit</zorder>
+    <zorder>txt_search</zorder>
+    <zorder>combo_type</zorder>
    </widget>
    <widget class="QWidget" name="list">
     <widget class="QLabel" name="label_6">
@@ -677,13 +654,13 @@ color: rgb(0, 0, 0)</string>
     </widget>
    </widget>
    <widget class="QWidget" name="detail">
-    <widget class="QLabel" name="label_38">
+    <widget class="QLabel" name="lb_detail_image">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>30</y>
-       <width>541</width>
-       <height>571</height>
+       <x>40</x>
+       <y>40</y>
+       <width>560</width>
+       <height>540</height>
       </rect>
      </property>
      <property name="text">
@@ -696,13 +673,13 @@ color: rgb(0, 0, 0)</string>
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label_39">
+    <widget class="QLabel" name="lb_detail_name">
      <property name="geometry">
       <rect>
        <x>630</x>
-       <y>220</y>
-       <width>381</width>
-       <height>31</height>
+       <y>160</y>
+       <width>420</width>
+       <height>28</height>
       </rect>
      </property>
      <property name="font">
@@ -718,13 +695,13 @@ color: rgb(0, 0, 0)</string>
       <string>Tên : Sân Bóng Đá Mini Tân Thới Hoà</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_40">
+    <widget class="QLabel" name="lb_detail_address">
      <property name="geometry">
       <rect>
        <x>630</x>
-       <y>260</y>
-       <width>351</width>
-       <height>31</height>
+       <y>200</y>
+       <width>420</width>
+       <height>28</height>
       </rect>
      </property>
      <property name="font">
@@ -740,13 +717,13 @@ color: rgb(0, 0, 0)</string>
       <string>Địa Chỉ : 17 Lương Minh Nguyệt</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_41">
+    <widget class="QLabel" name="lb_detail_grass">
      <property name="geometry">
       <rect>
        <x>630</x>
-       <y>290</y>
-       <width>221</width>
-       <height>31</height>
+       <y>240</y>
+       <width>420</width>
+       <height>28</height>
       </rect>
      </property>
      <property name="font">
@@ -762,13 +739,13 @@ color: rgb(0, 0, 0)</string>
       <string>Loại cỏ : Cỏ Nhân tạo</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_42">
+    <widget class="QLabel" name="lb_detail_field_type">
      <property name="geometry">
       <rect>
        <x>630</x>
-       <y>320</y>
-       <width>321</width>
-       <height>41</height>
+       <y>280</y>
+       <width>420</width>
+       <height>28</height>
       </rect>
      </property>
      <property name="font">
@@ -784,14 +761,17 @@ color: rgb(0, 0, 0)</string>
       <string>Loại sân: Sân Bóng đá 5 người</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_43">
+    <widget class="QLabel" name="lb_detail_ball_type">
      <property name="geometry">
       <rect>
        <x>630</x>
-       <y>360</y>
-       <width>451</width>
-       <height>61</height>
+       <y>320</y>
+       <width>420</width>
+       <height>60</height>
       </rect>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
      </property>
      <property name="font">
       <font>
@@ -807,13 +787,13 @@ color: rgb(0, 0, 0)</string>
  dùng trong bogs đá ưu tiên banh 2030</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_44">
+    <widget class="QLabel" name="lb_detail_contact">
      <property name="geometry">
       <rect>
        <x>630</x>
-       <y>430</y>
-       <width>261</width>
-       <height>20</height>
+       <y>390</y>
+       <width>420</width>
+       <height>24</height>
       </rect>
      </property>
      <property name="font">
@@ -829,7 +809,7 @@ color: rgb(0, 0, 0)</string>
       <string>Liên Lạc : 0868 180 975 </string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_8">
+    <widget class="QPushButton" name="btn_detail_back">
      <property name="geometry">
       <rect>
        <x>932</x>
@@ -856,11 +836,11 @@ color: rgb(0, 0, 0)</string>
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="btn_booking">
+    <widget class="QPushButton" name="btn_detail_booking">
      <property name="geometry">
       <rect>
-       <x>630</x>
-       <y>500</y>
+       <x>745</x>
+       <y>460</y>
        <width>200</width>
        <height>50</height>
       </rect>
