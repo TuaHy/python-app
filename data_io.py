@@ -71,32 +71,6 @@ def load_football_fields():
     except Exception as e:
         return []
 
-def search_football_fields_by_name(name):
-    """Search football fields by name"""
-    fields = load_football_fields()
-    results = []
-    
-    name = name.lower().strip()
-    
-    for field in fields:
-        if name in field.get("name", "").lower():
-            results.append(field)
-    
-    return results
-
-def search_football_fields_by_type(field_type):
-    """Search football fields by field type (5 người, 7 người, 11 người)"""
-    fields = load_football_fields()
-    results = []
-    
-    field_type = field_type.lower().strip()
-    
-    for field in fields:
-        if field_type in field.get("field_type", "").lower():
-            results.append(field)
-    
-    return results
-
 def load_field_types():
     """Load unique field types from football fields data"""
     fields = load_football_fields()
