@@ -635,5 +635,6 @@ class Home(QWidget):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     msg = Alert()
-    home.show()
+    login = Login()
+    login.show()
     app.exec()
